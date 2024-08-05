@@ -13,7 +13,7 @@ public class CustomArrayList<T> {
     private int size;
 
     private boolean checkThreshold() {
-        float fillRatio = (float) size / capacity;
+        float fillRatio = (float) this.size / this.capacity;
         return fillRatio >= GROW_THRESHOLD;
     }
 
@@ -33,11 +33,13 @@ public class CustomArrayList<T> {
         } else {
             throw new IllegalArgumentException("Capacity must be a positive integer");
         }
+        this.size = 0;
     }
 
     public CustomArrayList() {
         this.capacity = DEFAULT_CAPACITY;
-        this.data = new Object[capacity];
+        this.data = new Object[this.capacity];
+        this.size = 0;
     }
 
     public void add(int index, T element) {
